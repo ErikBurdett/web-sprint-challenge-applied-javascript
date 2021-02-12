@@ -1,4 +1,33 @@
+import axios from 'axios'
+console.log(axios)
+
+// why can't i declare this??? I'm stuck
+const wholeHeaderDiv = document.querySelector('.header-container');
+
+
+// ?????????????????????? 
 const Header = (title, date, temp) => {
+  // creating header elements
+  const wholeHeaderDiv = document.createElement('div')
+  const headerTitle = document.createElement('h1')
+  const headerDate = document.createElement('span')
+  const headerTemp = document.createElement('span')
+  // settings class names, attributes, and text
+  wholeHeaderDiv.classList.add('header')
+  headerDate.classList.add('date')
+  headerTemp.classList.add('temp')
+  headerTitle.textContent = "title"
+  // appending to wholeHeader div
+  wholeHeaderDiv.appendChild(headerDate)
+  wholeHeaderDiv.appendChild(headerTemp)
+  wholeHeaderDiv.appendChild(headerTemp)
+  wholeHeaderDiv.appendChild(headerTitle)
+  
+
+  return Header;
+}
+
+
   // TASK 1
   // ---------------------
   // Implement this function taking `title`, `date` and `temp` as its 3 args and returning the markup below.
@@ -11,7 +40,7 @@ const Header = (title, date, temp) => {
   //    <span class="temp">{ temp }</span>
   //  </div>
   //
-}
+
 
 const headerAppender = (selector) => {
   // TASK 2
