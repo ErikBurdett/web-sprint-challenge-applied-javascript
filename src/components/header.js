@@ -1,33 +1,5 @@
-import axios from 'axios'
-console.log(axios)
 
-// why can't i declare this??? I'm stuck
-const wholeHeaderDiv = document.querySelector('.header-container');
-
-
-// ?????????????????????? 
 const Header = (title, date, temp) => {
-  // creating header elements
-  const wholeHeaderDiv = document.createElement('div')
-  const headerTitle = document.createElement('h1')
-  const headerDate = document.createElement('span')
-  const headerTemp = document.createElement('span')
-  // settings class names, attributes, and text
-  wholeHeaderDiv.classList.add('header')
-  headerDate.classList.add('date')
-  headerTemp.classList.add('temp')
-  headerTitle.textContent = "title"
-  // appending to wholeHeader div
-  wholeHeaderDiv.appendChild(headerDate)
-  wholeHeaderDiv.appendChild(headerTemp)
-  wholeHeaderDiv.appendChild(headerTemp)
-  wholeHeaderDiv.appendChild(headerTitle)
-  
-
-  return Header;
-}
-
-
   // TASK 1
   // ---------------------
   // Implement this function taking `title`, `date` and `temp` as its 3 args and returning the markup below.
@@ -40,7 +12,28 @@ const Header = (title, date, temp) => {
   //    <span class="temp">{ temp }</span>
   //  </div>
   //
-
+  //! create elements
+  const header = document.createElement('div');
+  const dateSpan = document.createElement('span');
+  const titleH1 = document.createElement('h1');
+  const tempSpan = document.createElement('span');
+  //! add classes
+  header.classList.add('header');
+  dateSpan.classList.add('date');
+  tempSpan.classList.add('temp');
+  //! add text content
+  dateSpan.textContent = date;
+  titleH1.textContent = title;
+  tempSpan.textContent = temp;
+  //! set hierarchy 
+  header.appendChild(dateSpan);
+  header.appendChild(titleH1);
+  header.appendChild(tempSpan);
+  //! return header
+  return header;
+}
+//! check the function
+// console.log(Header('hello','02.10.10','25C')) 
 
 const headerAppender = (selector) => {
   // TASK 2
@@ -49,6 +42,9 @@ const headerAppender = (selector) => {
   // It should create a header using the Header component above, passing arguments of your choosing.
   // It should append the header to the element in the DOM that matches the given selector.
   //
+  const createHeader = Header('Lambda Times','February 12, 2021','25°');
+  const select = document.querySelector(selector);
+  select.appendChild(createHeader);
 }
 
 export { Header, headerAppender }
